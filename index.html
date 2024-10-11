@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Ashmita!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #fce4ec;
+            color: #880e4f;
+            overflow-x: hidden;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 3em;
+            color: #d81b60;
+        }
+        #birthdayMessage {
+            text-align: center;
+            margin: 20px auto;
+            font-size: 1.5em;
+            width: 60%;
+            animation: fadeIn 3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .balloon {
+            width: 80px;
+            height: 120px;
+            position: absolute;
+            bottom: -150px;
+            animation: floatUp 10s infinite ease-in-out;
+        }
+        .balloon:nth-child(1) {
+            left: 10%;
+            animation-duration: 9s;
+        }
+        .balloon:nth-child(2) {
+            left: 30%;
+            animation-duration: 12s;
+        }
+        .balloon:nth-child(3) {
+            left: 50%;
+            animation-duration: 10s;
+        }
+        .balloon:nth-child(4) {
+            left: 70%;
+            animation-duration: 11s;
+        }
+        .balloon:nth-child(5) {
+            left: 90%;
+            animation-duration: 8s;
+        }
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-30px);
+            }
+            100% {
+                transform: translateY(-600px);
+            }
+        }
+        .balloon img {
+            width: 100%;
+            height: auto;
+        }
+        #cake {
+            text-align: center;
+            margin: 50px 0;
+        }
+        #cake img {
+            width: 200px;
+            animation: appear 5s ease-in-out;
+        }
+        @keyframes appear {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        #songButton {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #d81b60;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        #confetti {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 30px;
+            background-color: #d81b60;
+            opacity: 0;
+            transform: rotateZ(15deg);
+            animation: fall 5s infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-20px) rotateZ(15deg); opacity: 1; }
+            100% { transform: translateY(500px) rotateZ(75deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Happy Birthday, Ashmita!</h1>
+
+    <div id="birthdayMessage">
+        Dear Ashmita, <br> Wishing you a day filled with love, joy, and laughter! May all your dreams come true, and may your year ahead be filled with happiness and beautiful moments. 🎉
+    </div>
+
+    <div id="cake">
+        <img src="img5.jpg" alt="Birthday Cake">
+    </div>
+
+    <div id="balloons">
+        <div class="balloon"><img src="img4.jpg" alt="Balloon"></div>
+        <div class="balloon"><img src="img4.jpg" alt="Balloon"></div>
+        <div class="balloon"><img src="img4.jpg" alt="Balloon"></div>
+        <div class="balloon"><img src="img4.jpg" alt="Balloon"></div>
+        <div class="balloon"><img src="img4.jpg" alt="Balloon"></div>
+    </div>
+
+    <button id="songButton">Play Birthday Song 🎶</button>
+
+    <div id="confetti"></div>
+
+    <script>
+        document.getElementById('songButton').addEventListener('click', function () {
+            let audio = new Audio('happy-birthday-220024.mp3');
+            audio.play();
+            startConfetti();
+        });
+
+        function startConfetti() {
+            const confettiContainer = document.getElementById('confetti');
+            for (let i = 0; i < 100; i++) {
+                let confettiPiece = document.createElement('div');
+                confettiPiece.classList.add('confetti-piece');
+                confettiPiece.style.left = Math.random() * 100 + 'vw';
+                confettiPiece.style.animationDelay = Math.random() * 5 + 's';
+                confettiContainer.appendChild(confettiPiece);
+            }
+        }
+    </script>
+
+</body>
+</html>
